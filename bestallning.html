@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matgemenskapen – Beställ</title>
+<style>
+body {margin:0;font-family:Arial;background:#0b0f1a;color:white;text-align:center;}
+.header {background:#111821;padding:20px;font-size:24px;color:#eab308;font-weight:bold;}
+.container {max-width:700px;margin:auto;padding:20px;}
+.card {background:#111827;padding:20px;border-radius:15px;margin-bottom:20px;}
+h2 {color:#eab308;}
+input, textarea, select {width:100%;padding:10px;margin-top:8px;border-radius:8px;border:none;}
+button {width:100%;padding:15px;margin-top:15px;border:none;border-radius:10px;background:#eab308;font-weight:bold;cursor:pointer;}
+.order {text-align:left;background:#0f172a;padding:10px;border-radius:10px;margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="header">🥕 Matgemenskapen – Beställ direkt</div>
+<div class="container">
+<div class="card">
+<h2>Välj producent</h2>
+<select id="producer">
+<option>Gården Soläng (ägg)</option>
+<option>Björkbackens Honung</option>
+<option>Grönsakslandet</option>
+</select>
+</div>
+<div class="card">
+<h2>Din beställning</h2>
+<input id="name" placeholder="Ditt namn">
+<input id="phone" placeholder="Telefonnummer">
+<textarea id="orderText" placeholder="Vad vill du beställa?"></textarea>
+<button onclick="sendOrder()">Skicka beställning</button>
+</div>
+<div class="card">
+<h2>📋 Inkomna beställningar (demo)</h2>
+<div id="orders"></div>
+</div>
+</div>
+<script>
+function sendOrder() {
+const name = document.getElementById("name").value;
+const phone = document.getElementById("phone").value;
+const text = document.getElementById("orderText").value;
+const producer = document.getElementById("producer").value;
+if (!name || !text) { alert("Fyll i namn och beställning"); return; }
+const order = `<div class="order"><b>${name}</b> (${phone})<br><b>Producent:</b> ${producer}<br>${text}</div>`;
+document.getElementById("orders").innerHTML += order;
+document.getElementById("name").value = "";
+document.getElementById("phone").value = "";
+document.getElementById("orderText").value = "";
+}
+</script>
+</body>
+</html>
