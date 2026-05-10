@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matgemenskapen - Startsida med beställning</title>
+<style>
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f2f1f;
+    color: #fffdf5;
+}
+header {
+    background: linear-gradient(135deg, #0f2f1f, #1f4f35);
+    padding: 60px 20px;
+    text-align: center;
+}
+header h1 {
+    margin: 0 0 15px 0;
+    font-size: clamp(34px, 7vw, 64px);
+    color: #f5e6c8;
+}
+header p {
+    max-width: 760px;
+    margin: 0 auto 25px auto;
+    font-size: 20px;
+    line-height: 1.5;
+}
+.nav-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+a.button, button {
+    background: #f5e6c8;
+    color: #153823;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+a.button.secondary {
+    background: transparent;
+    border: 2px solid #f5e6c8;
+    color: #f5e6c8;
+}
+section {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 45px 20px;
+}
+.card {
+    background: #1f4f35;
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+h2 {
+    color: #f5e6c8;
+    font-size: 32px;
+    margin-top: 0;
+}
+h3 {
+    color: #f5e6c8;
+    margin-top: 0;
+}
+p, li {
+    line-height: 1.6;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+.two-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+.product {
+    background: #fffdf5;
+    color: #153823;
+    border-radius: 16px;
+    padding: 18px;
+}
+.product h3 {
+    color: #153823;
+    margin-bottom: 8px;
+}
+.product small {
+    display: block;
+    color: #47624f;
+    margin-bottom: 10px;
+}
+.product .price {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.product input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #b8c8b4;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.order-box {
+    background: #fffdf5;
+    color: #153823;
+    border-radius: 18px;
+    padding: 25px;
+}
+.order-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-bottom: 1px solid #d7dfd2;
+    padding: 10px 0;
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+}
+input, textarea, select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #b8c8b4;
+    font-size: 16px;
+}
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.notice {
+    background: #153823;
+    border-left: 5px solid #f5e6c8;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #0b2418;
+    color: #f5e6c8;
+}
+@media (max-width: 850px) {
+    .grid, .two-grid, .form-row {
+        grid-template-columns: 1fr;
+    }
+    header {
+        padding: 42px 16px;
+    }
+    .order-row {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+    <h1>Matgemenskapen</h1>
+    <p>Lokal mat, riktiga människor och direkt kontakt mellan producenter och konsumenter.</p>
+    <div class="nav-buttons">
+        <a class="button" href="#bestallning">Beställ produkter</a>
+        <a class="button secondary" href="#arbetsdagar">Se arbetsdagar</a>
+    </div>
+</header>
+<section>
+    <div class="card">
+        <h2>Ett lokalt nätverk för mat, samarbete och gemenskap</h2>
+        <p>Matgemenskapen gör det enklare att köpa, sälja, byta och dela lokal mat och resurser. Här kan producenter lägga upp produkter och arbetsdagar, medan konsumenter kan beställa mat och hjälpa till praktiskt.</p>
+    </div>
+    <div class="grid">
+        <div class="card">
+            <h3>Köp & sälj</h3>
+            <p>Beställ direkt från lokala producenter utan onödiga mellanhänder.</p>
+        </div>
+        <div class="card">
+            <h3>Byt & dela</h3>
+            <p>Dela redskap, resurser och överskott med andra i nätverket.</p>
+        </div>
+        <div class="card">
+            <h3>Hjälp till</h3>
+            <p>Anmäl dig till arbetsdagar hos producenter som behöver extra händer.</p>
+        </div>
+    </div>
+</section>
+<section id="bestallning">
+    <div class="card">
+        <h2>Beställningssortiment</h2>
+        <p>Välj antal på de produkter du vill beställa. Summeringen skapas direkt längre ner på sidan.</p>
+    </div>
+    <div class="grid" id="productGrid"></div>
+</section>
+<section>
+    <div class="order-box">
+        <h2>Din beställning</h2>
+        <div id="orderList">Inga produkter valda ännu.</div>
+        <h3 id="total">Totalt: 0 kr</h3>
+        <div class="form-row">
+            <input id="customerName" type="text" placeholder="Namn">
+            <input id="customerPhone" type="text" placeholder="Telefon eller e-post">
+        </div>
+        <div class="form-row">
+            <select id="pickup">
+                <option value="Hämtas hos producent">Hämtas hos producent</option>
+                <option value="Hämtas på gemensam utlämningsplats">Hämtas på gemensam utlämningsplats</option>
+                <option value="Kontakta mig om leverans">Kontakta mig om leverans</option>
+            </select>
+            <input id="wantedDate" type="text" placeholder="Önskad dag/tid">
+        </div>
+        <textarea id="message" placeholder="Meddelande till producenten"></textarea>
+        <br><br>
+        <button onclick="createOrderText()">Skapa beställningstext</button>
+        <div class="notice" id="orderText">Här visas beställningstexten som kan kopieras och skickas via e-post, sms eller formulär.</div>
+    </div>
+</section>
+<section id="arbetsdagar">
+    <div class="card">
+        <h2>Kommande arbetsdagar</h2>
+        <div class="two-grid">
+            <div class="card">
+                <h3>Potatisskörd</h3>
+                <p>Lördag 10.00–14.00<br>Värd: Solbacka Gård<br>Behov: 6 personer</p>
+            </div>
+            <div class="card">
+                <h3>Växthusarbete</h3>
+                <p>Söndag 11.00–15.00<br>Värd: Gröna Boden<br>Behov: 4 personer</p>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <h2>Trygghet och ansvar</h2>
+        <p>Producenter ansvarar själva för att följa gällande livsmedelsregler, märkning, hygien, skatt, försäljning och dataskydd. Denna sida är en enkel demo och behöver kompletteras med juridiska villkor innan skarp användning.</p>
+    </div>
+</section>
+<footer>
+    Matgemenskapen – lokal mat, samarbete och gemenskap.
+</footer>
+<script>
+const products = [
+    { name: "Ägg, 12-pack", producer: "Solbacka Gård", unit: "förpackning", price: 55 },
+    { name: "Potatis, 5 kg", producer: "Björkbackens Lantbruk", unit: "påse", price: 85 },
+    { name: "Morötter, 1 kg", producer: "Gröna Boden", unit: "kg", price: 35 },
+    { name: "Honung, 500 g", producer: "Skogens Bi", unit: "burk", price: 95 },
+    { name: "Surdegsbröd", producer: "Bybageriet", unit: "bröd", price: 65 },
+    { name: "Äppelmust, 1 liter", producer: "Ängens Musteri", unit: "flaska", price: 75 },
+    { name: "Lök, 1 kg", producer: "Gröna Boden", unit: "kg", price: 30 },
+    { name: "Rödbetor, 1 kg", producer: "Björkbackens Lantbruk", unit: "kg", price: 38 },
+    { name: "Sylt, 300 g", producer: "Skogsgläntan", unit: "burk", price: 70 }
+];
+const productGrid = document.getElementById("productGrid");
+products.forEach((product, index) => {
+    const div = document.createElement("div");
+    div.className = "product";
+    div.innerHTML = `<h3>${product.name}</h3><small>${product.producer}</small><p>${product.unit}</p><div class="price">${product.price} kr</div><input type="number" min="0" value="0" id="qty-${index}" oninput="updateOrder()" aria-label="Antal ${product.name}">`;
+    productGrid.appendChild(div);
+});
+function updateOrder() {
+    let list = document.getElementById("orderList");
+    let total = 0;
+    let html = "";
+    products.forEach((product, index) => {
+        let qty = Number(document.getElementById(`qty-${index}`).value) || 0;
+        if (qty > 0) {
+            let rowTotal = qty * product.price;
+            total += rowTotal;
+            html += `<div class="order-row"><span>${qty} x ${product.name} (${product.producer})</span><strong>${rowTotal} kr</strong></div>`;
+        }
+    });
+    list.innerHTML = html || "Inga produkter valda ännu.";
+    document.getElementById("total").textContent = `Totalt: ${total} kr`;
+}
+function createOrderText() {
+    let name = document.getElementById("customerName").value || "Ej angivet";
+    let contact = document.getElementById("customerPhone").value || "Ej angivet";
+    let pickup = document.getElementById("pickup").value;
+    let date = document.getElementById("wantedDate").value || "Ej angivet";
+    let message = document.getElementById("message").value || "Inget meddelande";
+    let lines = [];
+    let total = 0;
+    products.forEach((product, index) => {
+        let qty = Number(document.getElementById(`qty-${index}`).value) || 0;
+        if (qty > 0) {
+            let rowTotal = qty * product.price;
+            total += rowTotal;
+            lines.push(`${qty} x ${product.name} från ${product.producer} = ${rowTotal} kr`);
+        }
+    });
+    let order = `BESTÄLLNING - MATGEMENSKAPEN\n\nNamn: ${name}\nKontakt: ${contact}\nUtlämning: ${pickup}\nÖnskad dag/tid: ${date}\n\nProdukter:\n${lines.length ? lines.join("\n") : "Inga produkter valda"}\n\nTotalt: ${total} kr\n\nMeddelande:\n${message}`;
+    document.getElementById("orderText").textContent = order;
+}
+updateOrder();
+</script>
+</body>
+</html>
