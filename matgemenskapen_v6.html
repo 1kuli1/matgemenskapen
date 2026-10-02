@@ -1,0 +1,111 @@
+<!doctype html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Matgemenskapen</title>
+<style>body{margin:0;font:16px system-ui;background:#fbf7ee;color:#243029}header,footer{background:#315b43;color:white;padding:18px}.wrap{max-width:1000px;margin:auto;padding:20px}nav{display:flex;gap:8px;flex-wrap:wrap}button{padding:11px 15px;border:0;border-radius:9px;background:#315b43;color:white;font-weight:700;cursor:pointer}header button{background:#ffffff22}.hero{background:#e8f0e9;padding:45px 0}h1,h2{color:#315b43}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{background:white;border:1px solid #d8dfd8;border-radius:14px;padding:18px;margin:14px 0}.view{display:none}.view.active{display:block}input,textarea,select{width:100%;padding:10px;margin:5px 0 12px;box-sizing:border-box}.close{float:right;background:white;color:#315b43;border:2px solid #315b43}.notice{padding:15px;background:#fff4e8;border-left:5px solid #b76535}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+.top-title{font-size:clamp(2rem,6vw,3.5rem);line-height:1.1}
+.hero h1{font-size:clamp(3.4rem,10vw,6.5rem);line-height:1.02;margin:.08em 0 .25em}
+.hero h3{font-size:clamp(1.45rem,4vw,2.25rem);line-height:1.35;max-width:900px}
+
+.home-intro{font-size:1.25rem;max-width:820px}
+.action-card{cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;border:2px solid transparent}
+.action-card:hover{transform:translateY(-3px);box-shadow:0 8px 22px #0002;border-color:#315b43}
+.action-card h2{font-size:1.65rem;margin-bottom:.35rem}.action-card p{font-size:1.08rem}
+.now{background:#edf4ee;border-radius:18px;padding:22px;margin:28px 0}
+.now h2{font-size:2rem}.tag{display:inline-block;background:#315b43;color:#fff;border-radius:999px;padding:5px 10px;font-size:.85rem;font-weight:700}
+.story{background:#fff;border-left:6px solid #315b43}.big-choice{font-size:1.05rem}
+
+.presentation-images{margin:28px 0}.presentation-images img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:15px;display:block}.presentation-images .card{padding:10px}.presentation-images p{padding:0 8px 4px;font-size:1rem}
+.shop-note{background:#fff;border:2px solid #315b43;border-radius:18px;padding:24px;margin:30px 0}.shop-note h2{font-size:2rem}
+</style></head><body>
+<main>
+<section id="home" class="view active">
+<div class="hero"><div class="wrap"><h1>Matgemenskapen</h1><h3>Lokal mat, riktiga människor och direkt kontakt mellan producenter och konsumenter.</h3><p class="home-intro">Här möts människor som vill köpa lokal mat, hjälpa till praktiskt och bygga en starkare lokal gemenskap.</p></div></div>
+<div class="wrap">
+<h2 style="font-size:2.2rem;margin-top:35px">Vad vill du göra?</h2>
+<div class="grid">
+<div class="card action-card" onclick="go('order')" tabindex="0"><span class="tag">KÖPA</span><h2>Jag vill köpa lokal mat</h2><p>Se vad lokala producenter erbjuder och skapa din beställning.</p></div>
+<div class="card action-card" onclick="go('work')" tabindex="0"><span class="tag">HJÄLPA</span><h2>Jag vill hjälpa till</h2><p>Delta i skörd, växthusarbete och andra gemensamma arbetsdagar.</p></div>
+<div class="card action-card" onclick="go('join')" tabindex="0"><span class="tag">PRODUCENT</span><h2>Jag vill bli producent</h2><p>Anmäl gården eller verksamheten och berätta vad du kan erbjuda.</p></div>
+</div>
+
+<div class="card action-card" onclick="go('shop')" tabindex="0" style="margin-top:18px">
+<span class="tag">GÅRDSBUTIK</span><h2>Jag har en gårdsbutik</h2>
+<p>Anslut butiken, hitta nya kunder, hitta lokala producenter och erbjud dig som utlämningsplats.</p>
+</div>
+<div class="grid presentation-images">
+<div class="card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgNTIwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUyMCIgZmlsbD0iI2RmZWFkOCIvPjxyZWN0IHk9IjM0MCIgd2lkdGg9IjkwMCIgaGVpZ2h0PSIxODAiIGZpbGw9IiM4ZWFhNmIiLz48Y2lyY2xlIGN4PSI3NDUiIGN5PSIxMDUiIHI9IjU4IiBmaWxsPSIjZjJjOTY4Ii8+PHBhdGggZD0iTTAgMzUwIFExODAgMjQwIDM2MCAzNTAgVDcyMCAzNTAgVDEwODAgMzUwVjUyMEgwWiIgZmlsbD0iIzZmOTQ1OCIvPjxyZWN0IHg9IjMzMCIgeT0iMjIwIiB3aWR0aD0iMjQ1IiBoZWlnaHQ9IjE2MCIgcng9IjUiIGZpbGw9IiNmNGVhZDUiLz48cGF0aCBkPSJNMjk1IDIzMEw0NTUgMTIwIDYxNSAyMzBaIiBmaWxsPSIjOWI0ZTNiIi8+PHJlY3QgeD0iNDMwIiB5PSIyOTUiIHdpZHRoPSI1NSIgaGVpZ2h0PSI4NSIgZmlsbD0iIzc2NTEzYyIvPjxyZWN0IHg9IjM2NSIgeT0iMjYwIiB3aWR0aD0iNDUiIGhlaWdodD0iNDUiIGZpbGw9IiM4ZmMyZDAiLz48cmVjdCB4PSI1MDUiIHk9IjI2MCIgd2lkdGg9IjQ1IiBoZWlnaHQ9IjQ1IiBmaWxsPSIjOGZjMmQwIi8+PGcgZmlsbD0iI2Q5OGEzYyI+PGNpcmNsZSBjeD0iMTIwIiBjeT0iNDEwIiByPSIyNCIvPjxjaXJjbGUgY3g9IjE2NSIgY3k9IjQyNSIgcj0iMjAiLz48Y2lyY2xlIGN4PSIyMDUiIGN5PSI0MDUiIHI9IjIzIi8+PC9nPjx0ZXh0IHg9IjQwIiB5PSI3MCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMzMTViNDMiPkxva2FsdCBwcm9kdWNlcmFkIG1hdDwvdGV4dD48L3N2Zz4=" alt="Illustration av lokal gård och lokal mat"><p><strong>Från gården</strong> – lokal mat med kort väg mellan producent och kund.</p></div>
+<div class="card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgNTIwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUyMCIgZmlsbD0iI2YzZWFkOCIvPjxyZWN0IHg9IjkwIiB5PSIxMTAiIHdpZHRoPSI3MjAiIGhlaWdodD0iMzQwIiByeD0iMTgiIGZpbGw9IiNmZmZhZjAiLz48cGF0aCBkPSJNNjUgMTQ1SDgzNUw3NzAgNTVIMTMwWiIgZmlsbD0iIzMxNWI0MyIvPjxyZWN0IHg9IjE1NSIgeT0iMjIwIiB3aWR0aD0iMTkwIiBoZWlnaHQ9IjIzMCIgZmlsbD0iI2Q4ZTZkNyIvPjxyZWN0IHg9IjQwMCIgeT0iMjA1IiB3aWR0aD0iMzMwIiBoZWlnaHQ9IjE0NSIgcng9IjEyIiBmaWxsPSIjZTVjNzljIi8+PGcgZmlsbD0iI2I3NjUzNSI+PGNpcmNsZSBjeD0iNDUwIiBjeT0iMjc1IiByPSIyOCIvPjxjaXJjbGUgY3g9IjUyMCIgY3k9IjI3MCIgcj0iMjQiLz48L2c+PGcgZmlsbD0iIzZkOTQ0ZiI+PGNpcmNsZSBjeD0iNTk1IiBjeT0iMjcyIiByPSIyOCIvPjxjaXJjbGUgY3g9IjY2NSIgY3k9IjI3NSIgcj0iMjQiLz48L2c+PHRleHQgeD0iNDUwIiB5PSIxNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ2IiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzE1YjQzIj5Hw6VyZHNidXRpa2VuPC90ZXh0Pjx0ZXh0IHg9IjQ1MCIgeT0iNDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZmlsbD0iIzViNjY1ZSI+bG9rYWxhIHByb2R1a3RlciDigKIgbG9rYWwgbcO2dGVzcGxhdHM8L3RleHQ+PC9zdmc+" alt="Illustration av en lokal gårdsbutik"><p><strong>Gårdsbutiken</strong> – en naturlig försäljningsplats och mötespunkt.</p></div>
+<div class="card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5MDAgNTIwIj48cmVjdCB3aWR0aD0iOTAwIiBoZWlnaHQ9IjUyMCIgZmlsbD0iI2U3ZWZlOCIvPjxjaXJjbGUgY3g9IjQ1MCIgY3k9IjI2MCIgcj0iMTI1IiBmaWxsPSIjZmZmIi8+PGcgZmlsbD0iIzMxNWI0MyI+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMTcwIiByPSI1NSIvPjxjaXJjbGUgY3g9IjY1MCIgY3k9IjE3MCIgcj0iNTUiLz48Y2lyY2xlIGN4PSIyNDUiIGN5PSIzNzUiIHI9IjU1Ii8+PGNpcmNsZSBjeD0iNjU1IiBjeT0iMzc1IiByPSI1NSIvPjwvZz48ZyBzdHJva2U9IiNiNzY1MzUiIHN0cm9rZS13aWR0aD0iMTgiIGZpbGw9Im5vbmUiPjxwYXRoIGQ9Ik0zMDAgMTk1TDM3NSAyMzUiLz48cGF0aCBkPSJNNjAwIDE5NUw1MjUgMjM1Ii8+PHBhdGggZD0iTTMwMCAzNTBMMzc1IDI5MCIvPjxwYXRoIGQ9Ik02MDAgMzUwTDUyNSAyOTAiLz48L2c+PHBhdGggZD0iTTM5MCAyODAgUTQ1MCAxOTAgNTEwIDI4MCBRNDUwIDM1MCAzOTAgMjgwWiIgZmlsbD0iIzc4YTY1YiIvPjx0ZXh0IHg9IjQ1MCIgeT0iNzUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjQyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMzE1YjQzIj5Qcm9kdWNlbnQg4oCiIGJ1dGlrIOKAoiBrdW5kIOKAoiBnZW1lbnNrYXA8L3RleHQ+PC9zdmc+" alt="Illustration av samarbete mellan producent butik kund och gemenskap"><p><strong>Tillsammans</strong> – producenter, butiker och kunder stärker varandra.</p></div>
+</div>
+<div class="shop-note"><span class="tag">NY IDÉ</span><h2>Lokala gårdsbutiker i Matgemenskapen</h2><p>Gårdsbutiker kan bli en viktig länk mellan producenter och konsumenter. De kan presentera sitt eget utbud, hitta nya kunder och samtidigt upptäcka produkter från andra lokala producenter.</p><p><strong>Det kan skapa ett lokalt kretslopp:</strong> producenten får fler försäljningsvägar, gårdsbutiken får ett bredare lokalt sortiment och konsumenten får enklare tillgång till mat från närområdet.</p></div>
+<div class="now"><h2>Det här händer i Matgemenskapen just nu</h2><div class="grid">
+<div class="card"><h2>🥔 Potatisskörd</h2><p><strong>Lördag 10–14</strong><br>Solbacka Gård söker 6 personer som vill hjälpa till.</p><button onclick="go('work')">Läs mer</button></div>
+<div class="card"><h2>🌱 Växthusarbete</h2><p><strong>Söndag 11–15</strong><br>Gröna Boden söker 4 personer.</p><button onclick="go('work')">Läs mer</button></div>
+<div class="card"><h2>🧺 Veckans gemenskapsbord</h2><p>Här kan vi senare visa veckans gemensamma utlämning, plats och tider.</p></div>
+</div></div>
+
+<h2 style="font-size:2rem">Mer än en marknadsplats</h2>
+<div class="grid">
+<div class="card action-card" onclick="go('order')"><h2>🥕 Det finns just nu</h2><p>Potatis, ägg, honung, grönsaker och bröd är exempelprodukter i demon. Senare visas verkligt aktuellt utbud här.</p></div>
+<div class="card action-card"><h2>🍎 Ge, byt & dela</h2><p>Har du äpplen över? Behöver du låna redskap? Här bygger vi en lokal anslagstavla för överskott och resurser.</p></div>
+<div class="card action-card" onclick="go('producers')"><h2>📍 Våra producenter</h2><p>Lär känna människorna bakom maten. Senare kan vi lägga till producentprofiler och en karta.</p></div>
+</div>
+
+<div class="card story"><h2>Veckans berättelse</h2><p>Här kan vi varje vecka presentera en producent, odlare eller deltagare – människorna bakom maten och gemenskapen.</p></div>
+</div></section>
+<section id="about" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button><h1>Om Matgemenskapen</h1><p>Matgemenskapen gör det enklare att köpa, sälja, byta och dela lokal mat och resurser. Producenter kan lägga upp produkter och arbetsdagar, medan konsumenter kan beställa mat och hjälpa till praktiskt.</p><div class="grid"><div class="card"><h2>Köp & sälj</h2><p>Direkt från lokala producenter.</p></div><div class="card"><h2>Byt & dela</h2><p>Dela redskap, resurser och överskott.</p></div><div class="card"><h2>Hjälp till</h2><p>Delta i arbetsdagar.</p></div></div></div></section>
+<section id="order" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button><h1>Beställ produkter</h1><div class="card" id="products"></div><div class="card"><h2>Din beställning</h2><div id="summary">Inga produkter valda ännu.</div><b>Totalt: <span id="total">0</span> kr</b><label><p>Namn</p><input id="customer"></label><label>Kontakt<input id="contact"></label><label>Utlämning<select id="pickup"><option>Hämtas hos producent</option><option>Gemensam utlämningsplats</option><option>Kontakta mig om leverans</option></select></label><button onclick="makeOrder()">Skapa beställningstext</button><pre id="orderText"></pre></div></div></section>
+<section id="work" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button><h1>Arbetsdagar</h1><div class="grid"><div class="card"><h2>Potatisskörd</h2><p>Lördag 10–14<br>Solbacka Gård<br>Behov: 6 personer</p></div><div class="card"><h2>Växthusarbete</h2><p>Söndag 11–15<br>Gröna Boden<br>Behov: 4 personer</p></div></div></div></section>
+<section id="producers" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button><h1>För producenter</h1><div class="grid"><div class="card"><h2>Visa produkter</h2><p>Produkter, priser och utlämning.</p></div><div class="card"><h2>Be om hjälp</h2><p>Publicera arbetsdagar.</p></div><div class="card"><h2>Bli leverantör</h2><button onclick="go('join')">Ansök</button></div></div></div></section>
+<section id="join" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button><h1>Bli producent</h1><p>Ansökan granskas före publicering.</p><form class="card" id="pf"><label>Företag/gård *<input id="farm" required></label><label>Kontaktperson *<input id="person" required></label><label>Ort *<input id="place" required></label><label>Telefon *<input id="phone" required></label><label>E-post *<input id="email" type="email" required></label><label>Kategori *<select id="cat" required><option value="">Välj</option><option>Grönsaker</option><option>Kött</option><option>Ägg</option><option>Bröd och spannmål</option><option>Honung</option><option>Mejeri</option><option>Annat</option></select></label><label>Produkter *<textarea id="goods" required></textarea></label><label><input type="checkbox" required style="width:auto"> Jag bekräftar att uppgifterna är riktiga.</label><p><button>Skapa leverantörsansökan</button></p></form><pre class="card" id="producerText" hidden></pre></div></section>
+<section id="shop" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button>
+<h1>Anslut en gårdsbutik</h1>
+<p>Lokala gårdsbutiker kan bli både försäljningsplats, inköpare av lokala produkter och utlämningspunkt i Matgemenskapen.</p>
+<div class="grid">
+<div class="card"><h2>Få nya kunder</h2><p>Visa butiken, sortimentet, öppettider och vad som är aktuellt just nu.</p></div>
+<div class="card"><h2>Köp från producenter</h2><p>Hitta lokala odlare och producenter som kan komplettera butikens eget sortiment.</p></div>
+<div class="card"><h2>Bli utlämningsplats</h2><p>Låt kunder hämta samlade beställningar från flera producenter på en lokal plats.</p></div>
+</div>
+<form class="card" id="shopForm"><h2>Intresseanmälan för gårdsbutik</h2>
+<label>Butikens namn *<input id="shopName" required></label>
+<label>Kontaktperson *<input id="shopPerson" required></label>
+<label>Ort *<input id="shopPlace" required></label>
+<label>Telefon *<input id="shopPhone" required></label>
+<label>E-post *<input id="shopEmail" type="email" required></label>
+<label>Webbplats<input id="shopWeb" type="url"></label>
+<label>Vad säljer ni idag?<textarea id="shopGoods"></textarea></label>
+<p><strong>Jag är intresserad av:</strong></p>
+<label><input id="newCustomers" type="checkbox" style="width:auto"> Att nå nya kunder</label><br>
+<label><input id="buyLocal" type="checkbox" style="width:auto"> Att köpa in produkter från lokala producenter</label><br>
+<label><input id="pickupPoint" type="checkbox" style="width:auto"> Att fungera som utlämningsplats</label><br>
+<label><input id="sellOthers" type="checkbox" style="width:auto"> Att sälja produkter från andra lokala producenter</label>
+<p><button>Skapa intresseanmälan</button></p></form>
+<pre class="card" id="shopText" hidden></pre>
+</div></section>
+<section id="safety" class="view"><div class="wrap"><button class="close" onclick="window.close()">Stäng fliken</button><h1>Trygghet och ansvar</h1><div class="notice">Producenter ansvarar själva för gällande livsmedelsregler, märkning, hygien, skatt, försäljning och dataskydd. Sidan är fortfarande en demo och behöver granskas före skarp användning.</div></div></section></main><footer><div class="wrap">Matgemenskapen – lokal mat, samarbete och gemenskap.</div></footer>
+<script>
+function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));(document.getElementById(id)||home).classList.add('active');scrollTo(0,0)}
+function go(id){if(id==='home'){show('home');return}let u=new URL(location.href);u.search='?view='+id;u.hash='';window.open(u,'_blank','noopener')}
+let v=new URLSearchParams(location.search).get('view');if(v)show(v);
+const ps=[['Potatis',25],['Ägg',45],['Honung',85],['Grönsaker',40],['Bröd',55]];ps.forEach((p,i)=>products.insertAdjacentHTML('beforeend',`<p><b>${p[0]}</b> – ${p[1]} kr <input style="width:65px" type="number" min="0" value="0" data-p="${i}"></p>`));
+function calc(){let t=0,l=[];document.querySelectorAll('[data-p]').forEach(e=>{let n=+e.value,p=ps[e.dataset.p];if(n){t+=n*p[1];l.push(`${n} × ${p[0]} – ${n*p[1]} kr`)}});summary.innerHTML=l.join('<br>')||'Inga produkter valda ännu.';total.textContent=t;return[t,l]}document.querySelectorAll('[data-p]').forEach(e=>e.oninput=calc);
+function makeOrder(){let[t,l]=calc();orderText.textContent=`BESTÄLLNING – MATGEMENSKAPEN\nNamn: ${customer.value}\nKontakt: ${contact.value}\n${l.join('\n')}\nTotalt: ${t} kr\nUtlämning: ${pickup.value}`}
+pf.onsubmit=e=>{e.preventDefault();producerText.hidden=false;producerText.textContent=`LEVERANTÖRSANSÖKAN – MATGEMENSKAPEN\nStatus: Väntar på granskning\nFöretag/gård: ${farm.value}\nKontaktperson: ${person.value}\nOrt: ${place.value}\nTelefon: ${phone.value}\nE-post: ${email.value}\nKategori: ${cat.value}\nProdukter: ${goods.value}`}
+
+document.getElementById('shopForm').onsubmit=e=>{
+ e.preventDefault();
+ const interests=[];
+ if(newCustomers.checked) interests.push('Nå nya kunder');
+ if(buyLocal.checked) interests.push('Köpa från lokala producenter');
+ if(pickupPoint.checked) interests.push('Vara utlämningsplats');
+ if(sellOthers.checked) interests.push('Sälja andra lokala producenters produkter');
+ shopText.hidden=false;
+ shopText.textContent=`INTRESSEANMÄLAN – GÅRDSBUTIK
+Butik: ${shopName.value}
+Kontaktperson: ${shopPerson.value}
+Ort: ${shopPlace.value}
+Telefon: ${shopPhone.value}
+E-post: ${shopEmail.value}
+Webbplats: ${shopWeb.value||'-'}
+Nuvarande sortiment: ${shopGoods.value||'-'}
+Intresserad av: ${interests.join(', ')||'Ej angivet'}`;
+};
+</script></body></html>
