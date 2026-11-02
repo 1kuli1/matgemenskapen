@@ -239,7 +239,16 @@ function renderDemo(){
  if(!demoGoods.length)inv.textContent='Inga produkter ännu. Lägg in en produkt ovan.';
  for(const [i,g] of demoGoods.entries()){
   const p=document.createElement('p');p.textContent=g.name+' · '+g.pack+' · '+g.price.toFixed(2)+' kr · '+g.stock+' kvar ';
-  const b=document.createElement('button');b.type='button';b.textContent='Ändra saldo';b.onclick=()=>{const n=prompt('Ange nytt lagersaldo för '+g.name,g.stock);if(n!==null&&/^\\d+$/.test(n)){demoGoods[i].stock=Number(n);saveGoods();renderDemo()}};p.append(b);inv.append(p);
+  const b=document.createElement('button');b.type='button';b.textContent='Ändra saldo';
+  const sf=document.createElement('form');sf.hidden=true;
+  const sl=document.createElement('label');sl.textContent='Nytt lagersaldo för '+g.name;
+  const si=document.createElement('input');si.type='text';si.inputMode='numeric';si.pattern='[0-9]*';si.value=String(g.stock);si.required=true;si.setAttribute('aria-label','Nytt lagersaldo för '+g.name);
+  const sb=document.createElement('button');sb.type='submit';sb.textContent='Spara saldo';
+  const sc=document.createElement('button');sc.type='button';sc.textContent='Avbryt';sc.onclick=()=>sf.hidden=true;
+  sl.append(si);sf.append(sl,sb,sc);
+  b.onclick=()=>{sf.hidden=!sf.hidden;if(!sf.hidden){si.value=String(g.stock);si.focus();si.select()}};
+  sf.onsubmit=e=>{e.preventDefault();const n=si.value.trim();if(!/^[0-9]+$/.test(n))return;demoGoods[i].stock=Number(n);saveGoods();renderDemo()};
+  p.append(b);inv.append(p,sf);
   if(g.stock>0)sel.add(new Option(g.name+' · '+g.pack+' · '+g.price.toFixed(2)+' kr',i));
  }
  if(!demoGoods.length)seller.add(new Option('Producentens butik visas här när varor lagts in',''));
@@ -252,5 +261,6 @@ function renderDemo(){
 document.getElementById('demoProduct').onsubmit=e=>{e.preventDefault();demoGoods.push({name:dpName.value.trim(),pack:dpPack.value.trim(),price:Number(dpPrice.value),stock:Number(dpStock.value)});saveGoods();e.target.reset();renderDemo()};
 document.getElementById('demoSale').onsubmit=e=>{e.preventDefault();const g=demoGoods[Number(dpSelect.value)],q=Number(dpQty.value);if(!g||q<1||q>g.stock){demoSaleResult.textContent='Kontrollera antal och lager.';return}g.stock-=q;saveGoods();renderDemo();demoSaleResult.textContent='Provköp registrerat. Betalsätt: '+dpMethod.value+'. Ingen betalning drogs.';demoReceipt.hidden=false;demoReceipt.textContent='PROVKVITTO · '+g.name+' · '+q+' × '+g.price.toFixed(2)+' kr · Totalt '+(q*g.price).toFixed(2)+' kr · '+dpMethod.value;};
 document.getElementById('shopSubmit').onclick=()=>{const inputs=[...document.querySelectorAll('#shopCatalog input')],rows=inputs.map(x=>({i:Number(x.dataset.index),q:Number(x.value)})).filter(x=>x.q>0);if(!rows.length){shopResult.textContent='Välj minst en vara.';return}for(const r of rows)if(r.q>demoGoods[r.i].stock){shopResult.textContent='Lagersaldot har ändrats. Kontrollera antal.';return}let total=0;for(const r of rows){demoGoods[r.i].stock-=r.q;total+=demoGoods[r.i].price*r.q}saveGoods();demoCart={};renderDemo();shopTotal.textContent=total.toFixed(2)+' kr';shopResult.textContent='Provbeställning registrerad för '+(shopBuyer.value||'kunden')+'. Hämta vid '+shopPickup.value+'. Betala producenten vid avhämtning. Inget kvitto eller meddelande skickades.'};
+document.addEventListener('wheel',e=>{if(e.target instanceof HTMLInputElement&&e.target.type==='number')e.preventDefault()},{passive:false});
 renderDemo();
 </script></body></html>
