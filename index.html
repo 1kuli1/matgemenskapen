@@ -159,7 +159,7 @@
 </div></section></main><footer><div class="wrap">Matgemenskapen – lokal mat, samarbete och gemenskap.</div></footer>
 <script>
 function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));(document.getElementById(id)||home).classList.add('active');scrollTo(0,0)}
-function go(id){if(id==='home'){show('home');return}let u=new URL(location.href);u.search='?view='+id;u.hash='';window.open(u,'_blank','noopener')}
+function go(id){if(id==='home'){show('home');return}let u=new URL(location.href);u.search='?view='+id+'&proposal=700cf0b';u.hash='';window.open(u,'_blank','noopener')}
 function closeView(){window.close();setTimeout(()=>{if(!window.closed){history.replaceState(null,'',location.pathname);show('home')}},120)}
 function joinWorkday(name){workdayChoice.value=name;workdayName.focus();document.getElementById('workdayForm').scrollIntoView({behavior:'smooth'})}
 document.querySelectorAll('.action-card[tabindex="0"]').forEach(card=>card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click()}}));
