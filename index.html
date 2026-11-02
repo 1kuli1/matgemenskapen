@@ -138,7 +138,7 @@
 
 <section id="about" class="view"><div class="wrap"><h1>Om Matgemenskapen</h1><p>Matgemenskapen gör det enklare att köpa, sälja, byta och dela lokal mat och resurser. Producenter kan lägga upp produkter och arbetsdagar, medan konsumenter kan beställa mat och hjälpa till praktiskt.</p><div class="card"><h2>Rättvis beställning</h2><p>Kunden kan alltid välja producent själv. Om kunden överlåter valet till Matgemenskapen används transparent, kapacitetsbaserad rotation mellan producenter som kan leverera.</p></div><div class="grid"><div class="card"><h2>Köp & sälj</h2><p>Direkt från lokala producenter.</p></div><div class="card"><h2>Byt & dela</h2><p>Dela redskap, resurser och överskott.</p></div><div class="card"><h2>Hjälp till</h2><p>Delta i arbetsdagar.</p></div></div><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
 </div></section>
-<section id="order" class="view"><div class="wrap"><h1>Beställningsförslag</h1><div class="notice">Detta är en demo. Beställningstexten skickas inte till producenten. Producentens kassa används av producenten vid försäljning i gårdsbutik eller på marknad.</div><div class="card"><h2>Välj hur producenten ska bestämmas</h2><label><input type="radio" name="producerChoice" value="self" checked style="width:auto" onchange="renderProducts()"> Jag vill välja producent själv</label><br><label><input type="radio" name="producerChoice" value="fair" style="width:auto" onchange="renderProducts()"> Fördela min beställning rättvist</label><p id="fairInfo"><small>När du väljer rättvis fördelning används bara producenter som kan leverera produkten till vald utlämning. Systemet roterar beställningar transparent och tar hänsyn till producentens angivna kapacitet. I denna demo visas principen lokalt; verklig fördelningshistorik kräver den framtida databasen.</small></p></div><div class="card" id="products"></div><div class="card"><h2>Din beställning</h2><div id="summary">Inga produkter valda ännu.</div><b>Totalt: <span id="total">0</span> kr</b><label><p>Namn</p><input id="customer"></label><label>Kontakt<input id="contact"></label><label>Utlämning<select id="pickup"><option>Hämtas hos producent</option><option>Gemensam utlämningsplats</option><option>Gemensam utlämningsdag</option><option>Mat till jobbet</option><option>Kontakta mig om leverans</option></select></label><button onclick="makeOrder()">Skapa beställningstext</button><pre id="orderText"></pre></div><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
+<section id="order" class="view"><div class="wrap"><h1>Beställningsförslag</h1><div class="notice">Detta är en demo. Beställningstexten skickas inte till producenten. Producentens kassa används av producenten vid försäljning i gårdsbutik eller på marknad.</div><div class="card"><h2>Välj hur producenten ska bestämmas</h2><label><input type="radio" name="producerChoice" value="self" checked style="width:auto" onchange="renderProducts()"> Jag vill välja producent själv</label><br><label><input type="radio" name="producerChoice" value="fair" style="width:auto" onchange="renderProducts()"> Fördela min beställning rättvist</label><p id="fairInfo"><small>När du väljer rättvis fördelning används bara producenter som kan leverera produkten till vald utlämning. Systemet roterar beställningar transparent och tar hänsyn till producentens angivna kapacitet. I denna demo visas principen lokalt; verklig fördelningshistorik kräver den framtida databasen.</small></p></div><div class="card"><p id="producerCatalogStatus" role="status">Hämtar aktiva producenters sortiment …</p><div id="products"></div></div><div class="card"><h2>Din beställning</h2><div id="summary">Inga produkter valda ännu.</div><b>Totalt: <span id="total">0</span> kr</b><label><p>Namn</p><input id="customer"></label><label>Kontakt<input id="contact"></label><label>Utlämning<select id="pickup"><option>Hämtas hos producent</option><option>Gemensam utlämningsplats</option><option>Gemensam utlämningsdag</option><option>Mat till jobbet</option><option>Kontakta mig om leverans</option></select></label><button onclick="makeOrder()">Skapa beställningstext</button><pre id="orderText"></pre></div><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
 </div></section>
 <section id="work" class="view"><div class="wrap"><h1>Arbetsdagar</h1><div class="grid"><div class="card"><h2>Potatisskörd</h2><p>Lördag 10–14<br>Solbacka Gård<br>Behov: 6 personer</p><button type="button" onclick="joinWorkday('Potatisskörd – lördag 10–14, Solbacka Gård')">Jag vill hjälpa till</button></div><div class="card"><h2>Växthusarbete</h2><p>Söndag 11–15<br>Gröna Boden<br>Behov: 4 personer</p><button type="button" onclick="joinWorkday('Växthusarbete – söndag 11–15, Gröna Boden')">Jag vill hjälpa till</button></div></div><div class="card" style="margin-top:18px"><h2>Anmäl intresse</h2><form id="workdayForm"><label>Arbetsdag<input id="workdayChoice" readonly required></label><label>Namn<input id="workdayName" required></label><label>Kontaktuppgift<input id="workdayContact" required></label><label>Kommentar<textarea id="workdayComment"></textarea></label><button>Skapa intresseanmälan</button></form><pre id="workdayText" hidden></pre></div><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
 </div></section>
@@ -146,7 +146,7 @@
 <section id="producers" class="view"><div class="wrap"><h1>För producenter</h1><p>En enkel butik för försäljning från gårdsbutik, marknadsstånd eller utlämning.</p><div class="grid"><div class="card"><h2>Min butik</h2><p>Fyll i uppgifter en gång, hantera produkter och lager, och öppna kassan för gårdsbutik eller marknad.</p><button onclick="window.open('https://matgemenskapen-producent-tf.tommy-forsman2100418.chatgpt.site/','_blank','noopener')">Öppna producentpanelen</button></div><div class="card"><h2>Bli leverantör</h2><p>Ansök om att visa produkter i Matgemenskapen.</p><button onclick="go('join')">Ansök</button></div></div><p class="notice">Förslag till fungerande demo. Alla betalningar är simulerade. I den riktiga tjänsten får varje producent eget konto och egen betalningslösning.</p><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div></div></section>
 <section id="sellerdesk" class="view"><div class="wrap"><button class="close" onclick="go('producers')">Tillbaka</button><h1>Min butik</h1><p>Försäljning vid gårdsbutik eller marknadsstånd</p><div class="notice">Provdemo i den här webbläsaren. Börja med att lägga in en produkt. Försäljningar minskar lagret automatiskt.</div><div class="card"><h2>Lägg in produkt</h2><form id="demoProduct"><label>Produktnamn<input id="dpName" required></label><label>Förpackning eller enhet<input id="dpPack" placeholder="Exempel: burk 250 g" required></label><label>Pris (kr)<input id="dpPrice" type="number" min="0.01" step="0.01" required></label><label>Antal i lager<input id="dpStock" type="number" min="0" step="1" required></label><button>Spara produkt</button></form></div><div class="card"><h2>Sortiment och lager</h2><div id="demoInventory"></div></div><div class="card"><h2>Kassa vid gårdsbutik eller marknad</h2><form id="demoSale"><label>Vara<select id="dpSelect" required></select></label><label>Antal<input id="dpQty" type="number" min="1" step="1" value="1" required></label><label>Betalsätt<select id="dpMethod"><option>Swish direkt till producenten</option><option>Kort hos producenten</option><option>Kontanter till producenten</option></select></label><button>Registrera provköp</button></form><p id="demoSaleResult" role="status"></p><div id="demoReceipt" hidden></div></div><button onclick="go('directshop')">Visa kundens butik</button></div></section>
 <section id="directshop" class="view"><div class="wrap"><button class="close" onclick="go('producers')">Tillbaka</button><h1>Handla från en producent</h1><p>Välj en gårdsbutik eller producent, se aktuellt utbud och lägg varor i korgen för avhämtning.</p><div class="card"><label>Välj butik eller producent<select id="shopSeller"></select></label><label>Var hämtar du varorna?<select id="shopPickup"><option>Gårdsbutik</option><option>Producentens marknadsstånd</option><option>Gemensam utlämning</option></select></label><div id="shopCatalog"></div><h2>Varukorg</h2><div id="shopCart">Korgen är tom.</div><p><b>Summa <span id="shopTotal">0 kr</span></b></p><label>Ditt namn<input id="shopBuyer"></label><label>Din e-post eller ditt mobilnummer<input id="shopContact" placeholder="Lämnas i demon, inget meddelande skickas"></label><button id="shopSubmit">Lägg beställningen för avhämtning</button><p id="shopResult" role="status"></p></div><p class="notice">I den här prototypen är betalning och beställning en demonstration. Kunden betalar producenten vid avhämtning eller i butik. Inget sms eller e-post skickas.</p></div></section>
-<section id="join" class="view"><div class="wrap"><h1>Bli producent</h1><p>Ansökan granskas före publicering.</p><form class="card" id="pf"><label>Företag/gård *<input id="farm" required></label><label>Kontaktperson *<input id="person" required></label><label>Ort *<input id="place" required></label><label>Telefon *<input id="phone" required></label><label>E-post *<input id="email" type="email" required></label><label>Kategori *<select id="cat" required><option value="">Välj</option><option>Grönsaker</option><option>Kött</option><option>Ägg</option><option>Bröd och spannmål</option><option>Honung</option><option>Mejeri</option><option>Annat</option></select></label><label>Produkter *<textarea id="goods" required></textarea></label><label><input type="checkbox" required style="width:auto"> Jag bekräftar att uppgifterna är riktiga.</label><p><button>Skapa leverantörsansökan</button></p></form><pre class="card" id="producerText" hidden></pre><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
+<section id="join" class="view"><div class="wrap"><h1>Bli producent</h1><p>Fyll i intresseanmälan och lägg sedan in företagets uppgifter och produkter i producentpanelen. Produkter med saldo visas automatiskt i beställningens ruta för val av producent.</p><form class="card" id="pf"><label>Företag/gård *<input id="farm" required></label><label>Kontaktperson *<input id="person" required></label><label>Ort *<input id="place" required></label><label>Telefon *<input id="phone" required></label><label>E-post *<input id="email" type="email" required></label><label>Kategori *<select id="cat" required><option value="">Välj</option><option>Grönsaker</option><option>Kött</option><option>Ägg</option><option>Bröd och spannmål</option><option>Honung</option><option>Mejeri</option><option>Annat</option></select></label><label>Produkter *<textarea id="goods" required></textarea></label><label><input type="checkbox" required style="width:auto"> Jag bekräftar att uppgifterna är riktiga.</label><p><button>Skapa leverantörsansökan</button></p></form><pre class="card" id="producerText" hidden></pre><p><button type="button" onclick="window.open('https://matgemenskapen-producent-tf.tommy-forsman2100418.chatgpt.site/','_blank','noopener')">Fyll i företagsuppgifter och produkter</button></p><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
 </div></section>
 <section id="shop" class="view"><div class="wrap">
 <div class="card" style="text-align:center;padding:38px 24px"><span class="tag">KOMMER SNART</span><h1>Gårdsbutiker</h1><p style="font-size:1.2rem">Vi arbetar med att ansluta lokala gårdsbutiker till Matgemenskapen.</p><p>Framöver kommer du här kunna hitta gårdsbutiker, se deras lokala sortiment och – där det passar – välja dem som en extra utlämningsplats.</p><div class="notice"><strong>Matgemenskapen fungerar redan utan gårdsbutiker.</strong><br>Beställningar kan hämtas hos producenten, lämnas ut på en gemensam utlämningsplats eller utlämningsdag, eller levereras via Mat till jobbet.</div><p><strong>Driver du en gårdsbutik?</strong><br>Du är välkommen att anmäla ditt intresse inför den kommande delen.</p></div>
@@ -158,25 +158,88 @@
 <section id="safety" class="view"><div class="wrap"><h1>Trygghet och ansvar</h1><div class="notice">Producenter ansvarar själva för gällande livsmedelsregler, märkning, hygien, skatt, försäljning och dataskydd. Sidan är fortfarande en demo och behöver granskas före skarp användning.</div><div style="margin-top:28px"><button class="close" onclick="closeView()">Stäng fliken</button></div>
 </div></section></main><footer><div class="wrap">Matgemenskapen – lokal mat, samarbete och gemenskap.</div></footer>
 <script>
-function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));(document.getElementById(id)||home).classList.add('active');scrollTo(0,0)}
+function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));(document.getElementById(id)||home).classList.add('active');scrollTo(0,0);if(id==='order')loadProducerCatalog()}
 function go(id){if(id==='home'){show('home');return}let u=new URL(location.href);u.search='?view='+id+'&proposal=700cf0b';u.hash='';window.open(u,'_blank','noopener')}
 function closeView(){window.close();setTimeout(()=>{if(!window.closed){history.replaceState(null,'',location.pathname);show('home')}},120)}
 function joinWorkday(name){workdayChoice.value=name;workdayName.focus();document.getElementById('workdayForm').scrollIntoView({behavior:'smooth'})}
 document.querySelectorAll('.action-card[tabindex="0"]').forEach(card=>card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click()}}));
-let v=new URLSearchParams(location.search).get('view');if(v)show(v);
-const catalog=[
- {name:'Potatis',offers:[{producer:'Solgläntans Gård',price:25,capacity:40},{producer:'Solvikens Grönsaker',price:26,capacity:25},{producer:'Västerängens Odling',price:24,capacity:20}]},
- {name:'Ägg',offers:[{producer:'Ängsbackens Hönseri',price:48,capacity:20},{producer:'Hagalyckans Höns',price:46,capacity:12}]},
- {name:'Honung',offers:[{producer:'Björkängens Bigård',price:89,capacity:18},{producer:'Skogsbrynets Bigård',price:92,capacity:10}]},
- {name:'Grönsaker',offers:[{producer:'Solgläntans Gård',price:40,capacity:30},{producer:'Solvikens Grönsaker',price:42,capacity:35}]},
- {name:'Bröd',offers:[{producer:'Kvarnbackens Bageri',price:59,capacity:25},{producer:'Backstugans Bageri',price:57,capacity:15}]}
-];
+let catalog=[];
+let catalogLoading=false;
+const producerCatalogUrl='https://matgemenskapen-producent-tf.tommy-forsman2100418.chatgpt.site/public/catalog';
 function choiceMode(){return document.querySelector('input[name="producerChoice"]:checked')?.value||'self'}
-function fairOffer(item,index){let available=item.offers.filter(o=>o.capacity>0);return available[index%available.length]}
-function renderProducts(){if(!document.getElementById('products'))return;products.innerHTML='';let mode=choiceMode();catalog.forEach((item,i)=>{if(mode==='self'){let opts=item.offers.map((o,j)=>`<option value="${j}">${o.producer} – ${o.price} kr (kapacitet ${o.capacity})</option>`).join('');products.insertAdjacentHTML('beforeend',`<div class="card"><b>${item.name}</b><label>Producent<select data-producer="${i}">${opts}</select></label><label>Antal<input style="width:80px" type="number" min="0" inputmode="numeric" placeholder="" data-p="${i}"></label></div>`)}else{let o=fairOffer(item,i);products.insertAdjacentHTML('beforeend',`<div class="card"><b>${item.name}</b><p>Producent väljs med rättvis, kapacitetsbaserad rotation när beställningen fördelas.</p><small>Demoexempel just nu: ${o.producer} – ${o.price} kr.</small><label>Antal<input style="width:80px" type="number" min="0" inputmode="numeric" placeholder="" data-p="${i}"></label></div>`)}});document.querySelectorAll('[data-p], [data-producer]').forEach(e=>e.oninput=calc);calc()}
-function calc(){let t=0,l=[];document.querySelectorAll('[data-p]').forEach(e=>{let n=+e.value;if(!n)return;let i=+e.dataset.p,item=catalog[i],o;if(choiceMode()==='self'){let sel=document.querySelector(`[data-producer="${i}"]`);o=item.offers[+(sel?.value||0)]}else{o=fairOffer(item,i)}t+=n*o.price;l.push(`${n} × ${item.name} – ${o.producer} – ${n*o.price} kr`) });summary.innerHTML=l.join('<br>')||'Inga produkter valda ännu.';total.textContent=t;return[t,l]}
-function makeOrder(){let[t,l]=calc();let mode=choiceMode()==='self'?'Kunden har valt producent':'Rättvis kapacitetsbaserad fördelning';orderText.textContent=`BESTÄLLNING – MATGEMENSKAPEN\nNamn: ${customer.value}\nKontakt: ${contact.value}\nFördelning: ${mode}\n${l.join('\n')}\nTotalt: ${t} kr\nUtlämning: ${pickup.value}`}
-renderProducts();
+function fairOffer(item,index){let available=item.offers.filter(o=>o.stock>0);return available.length?available[index%available.length]:null}
+async function loadProducerCatalog(){
+ if(catalogLoading)return;
+ catalogLoading=true;
+ const status=document.getElementById('producerCatalogStatus');
+ if(status)status.textContent='Hämtar aktiva producenters sortiment …';
+ try{
+  const response=await fetch(producerCatalogUrl,{cache:'no-store'});
+  if(!response.ok)throw Error('Katalogen svarade inte.');
+  const offers=await response.json(),groups=new Map();
+  for(const offer of offers){
+   if(!offer||!offer.category||!offer.producer||!offer.name||!Number.isInteger(offer.price)||!Number.isInteger(offer.stock)||offer.stock<1)continue;
+   if(!groups.has(offer.category))groups.set(offer.category,{name:offer.category,offers:[]});
+   groups.get(offer.category).offers.push({...offer,price:offer.price});
+  }
+  catalog=[...groups.values()];
+  if(status)status.textContent=catalog.length?'Sortimentet hämtas från producentpanelen och visar varor som har saldo.':'Inga producentvaror är tillgängliga ännu. När en producent sparar en produkt visas den här.';
+ }catch{
+  catalog=[];
+  if(status)status.textContent='Kunde inte hämta producenternas sortiment just nu. Försök ladda om sidan.';
+ }
+ catalogLoading=false;
+ renderProducts();
+}
+function renderProducts(){
+ const root=document.getElementById('products');if(!root)return;root.replaceChildren();
+ if(!catalog.length){calc();return}
+ catalog.forEach((item,i)=>{
+  const card=document.createElement('div');card.className='card';
+  const title=document.createElement('b');title.textContent=item.name;card.append(title);
+  if(choiceMode()==='self'){
+   const label=document.createElement('label');label.textContent='Producent och vara';
+   const select=document.createElement('select');select.dataset.producer=String(i);
+   item.offers.forEach((offer,j)=>select.add(new Option(`${offer.producer} · ${offer.name} ${offer.pack} – ${(offer.price/100).toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})} kr (${offer.stock} i lager)`,String(j))));
+   label.append(select);card.append(label);select.onchange=calc;
+  }else{
+   const description=document.createElement('p');description.textContent='Producent väljs bland de producenter som har varan i lager.';card.append(description);
+   const offer=fairOffer(item,i);const sample=document.createElement('small');sample.textContent=offer?`Tillgänglig producent: ${offer.producer} – ${offer.stock} i lager.`:'Ingen producent har varan i lager.';card.append(sample);
+  }
+  const label=document.createElement('label');label.textContent='Antal';
+  const input=document.createElement('input');input.type='number';input.min='0';input.step='1';input.inputMode='numeric';input.placeholder='';input.dataset.p=String(i);input.style.width='100px';
+  label.append(input);card.append(label);root.append(card);input.oninput=calc;
+ });
+ calc();
+}
+function currentOffer(item,index){
+ if(choiceMode()==='self'){const select=document.querySelector(`[data-producer="${index}"]`);return item.offers[Number(select?.value)||0]||null}
+ return fairOffer(item,index);
+}
+function calc(){
+ let cents=0,lines=[],valid=true;
+ document.querySelectorAll('[data-p]').forEach(input=>{
+  const quantity=Number(input.value);if(!quantity)return;
+  const index=Number(input.dataset.p),item=catalog[index],offer=item&&currentOffer(item,index);
+  if(!Number.isSafeInteger(quantity)||quantity<0||!offer){valid=false;return}
+  if(quantity>offer.stock){valid=false;lines.push(`${item.name}: högst ${offer.stock} i lager hos ${offer.producer}.`);return}
+  cents+=quantity*offer.price;
+  lines.push(`${quantity} × ${item.name} (${offer.pack}) – ${offer.producer} – ${(quantity*offer.price/100).toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})} kr`);
+ });
+ const summary=document.getElementById('summary');summary.textContent='';
+ if(lines.length)lines.forEach((line,index)=>{if(index)summary.append(document.createElement('br'));summary.append(document.createTextNode(line))});
+ else summary.textContent=catalog.length?'Inga produkter valda ännu.':'Det finns inga produkter att beställa ännu.';
+ document.getElementById('total').textContent=(cents/100).toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2});
+ return {cents,lines,valid};
+}
+function makeOrder(){
+ const result=calc();
+ if(!result.lines.length||!result.valid){document.getElementById('orderText').textContent='Välj produkter och kontrollera att antalet ryms inom lagersaldot.';return}
+ const mode=choiceMode()==='self'?'Kunden har valt producent':'Rättvis kapacitetsbaserad fördelning';
+ document.getElementById('orderText').textContent=`BESTÄLLNING – MATGEMENSKAPEN\nNamn: ${document.getElementById('customer').value}\nKontakt: ${document.getElementById('contact').value}\nFördelning: ${mode}\n${result.lines.join('\n')}\nTotalt: ${(result.cents/100).toLocaleString('sv-SE',{minimumFractionDigits:2,maximumFractionDigits:2})} kr\nUtlämning: ${document.getElementById('pickup').value}`;
+}
+let v=new URLSearchParams(location.search).get('view');if(v)show(v);
+setInterval(()=>{if(document.getElementById('order')?.classList.contains('active'))loadProducerCatalog()},60000);
 const workdayForm=document.getElementById('workdayForm');
 if(workdayForm)workdayForm.onsubmit=e=>{e.preventDefault();workdayText.hidden=false;workdayText.textContent=`INTRESSEANMÄLAN – ARBETSDAG
 Arbetsdag: ${workdayChoice.value}
